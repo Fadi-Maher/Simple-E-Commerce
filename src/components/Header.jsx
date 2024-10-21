@@ -6,7 +6,7 @@ import { ShoppingCartIcon } from '@heroicons/react/16/solid';
 const Header = () => {
    const navigate = useNavigate();
   return (
-    <header className="bg-blue-500 text-white p-4 flex justify-between">
+    <header className="bg-blue-500 text-white p-5 flex justify-between">
       <h2 className="text-2xl font-bold"> E-Commerce Store</h2>
        <button
         onClick={() => navigate('/cart')}
