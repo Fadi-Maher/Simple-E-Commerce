@@ -4,6 +4,8 @@ import axios from "axios";
 import { useCart } from "./cartContext";
 import { FcRating } from "react-icons/fc";
  import { ToastContainer , toast } from "react-toastify";
+ import 'react-toastify/dist/ReactToastify.css'; 
+
 
 
 const ProductDetails = () => {
@@ -30,7 +32,7 @@ const ProductDetails = () => {
     toast.success(`${product.title} added to cart!)`, {
       position: "top-right",  
       autoClose: 3000,  
-      hideProgressBar: true,  
+      hideProgressBar: false,  
     });
   };
    
@@ -54,11 +56,9 @@ const ProductDetails = () => {
 
         </div>
 
-        <div className="w-10">
-            <ToastContainer />
-        </div>
-    
-    </div>
+             <ToastContainer />
+ 
+     </div>
     
   );
 };

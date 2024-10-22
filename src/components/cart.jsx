@@ -20,8 +20,9 @@ const Cart = () => {
               className="bg-red-500 text-white py-1 px-4 rounded hover:bg-red-700 mr-52 "
             >
               
-                <div>
+                <div className='flex justify-center items-center gap-2'>
                  <i className="  fa-solid fa-trash"></i>
+                 Delete
               </div>
             </button>
 

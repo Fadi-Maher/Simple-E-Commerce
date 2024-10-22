@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from './cartContext';
-import { useState } from 'react';
+  
 
-const Product = ({ product }) => {
-  const { addToCart } = useCart();
+const Product = ({ product, onAddToCart }) => {
   const [isAdded, setIsAdded] = useState(false);
- const handleAddToCart = () => {
-    addToCart(product);
-    setIsAdded(true);
+  const { addToCart } = useCart();
+
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();  
+    e.stopPropagation();  
+
+     setIsAdded(true);
+     addToCart(product);  
+
+     onAddToCart(product.title);
   };
 
   return (
@@ -17,7 +24,7 @@ const Product = ({ product }) => {
       <p className="text-gray-600 mb-2 p-1 font-bold">${product.price.toFixed(2)}</p>
       <p className="text-sm text-gray-500 mb-2">{product.category}</p>
       <p className="text-sm mb-2 ">{product.description.slice(0, 100)}...</p>
-    <button 
+      <button 
         onClick={handleAddToCart} 
         disabled={isAdded}
         className={`mt-2 p-2 ${isAdded ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-700'} text-white font-bold rounded`}
